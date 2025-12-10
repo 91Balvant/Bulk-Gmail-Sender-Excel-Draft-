@@ -1,97 +1,121 @@
-# 📧 Mail Merge Pro - Bulk Gmail Sender
+<!-- Centered Modern Header -->
+<div align="center">
 
-![Mail Merge Pro Preview](https://github.com/91Balvant/Bulk-Gmail-Sender-Excel-Draft-/blob/main/preview.png?raw=true)
+# 📧 **Mail Merge Pro – Bulk Gmail Sender**
 
-**Mail Merge Pro** is a robust desktop application designed to automate bulk email sending directly through your Gmail account. By combining the power of Excel for data management and Gmail Drafts for template creation, this tool makes sending personalized mass emails effortless.
+A modern desktop tool to send **personalized bulk emails** using  
+**Excel data + Gmail Drafts + Google OAuth**.
 
-## 🚀 Key Features
+<img src="https://komarev.com/ghpvc/?username=MailMergePro&label=VISITORS&color=blue&style=for-the-badge" />
 
-* **🔒 Secure Google Authentication:** Log in safely using your own Google account credentials (OAuth 2.0).
-* **📄 Excel Integration:** Import recipient lists and custom data variables directly from `.xlsx` files.
-* **📝 Gmail Draft Support:** No need to code HTML templates! Design your email in Gmail (including formatting and signatures), save it as a draft, and select it within the app.
-* **📎 Attachment Support:** Option to include attachments with your bulk emails.
-* **⏯️ Control Flow:** Includes **Start**, **Stop**, and **Resume** functionality to manage large sending queues.
-* **📊 Real-Time Status:** Live progress bar and activity logs to track sending status, authentication, and errors.
-* **🔄 Auto-Refresh:** Capabilities to refresh Excel data and Draft lists without restarting the app.
+<br><br>
 
----
+<img src="https://github.com/91Balvant/Bulk-Gmail-Sender-Excel-Draft-/blob/main/preview.png?raw=true" width="720" />
 
-## 🛠️ How It Works
-
-1.  **Authentication:** The app authenticates with the Gmail API to access your drafts and sending capabilities.
-2.  **Data Loading:** You upload an Excel file containing your recipient list (e.g., Email, Name, Company).
-3.  **Template Selection:** The app fetches your current Gmail Drafts. Select the one you want to use as a template.
-4.  **Mail Merge:** The app replaces placeholders in your draft with data from the Excel file (if configured) and sends the emails one by one.
+</div>
 
 ---
 
-## 💻 Installation & Setup
-
-### Prerequisites
-* Python 3.x installed.
-* A Google Cloud Project with the Gmail API enabled.
-* `credentials.json` file from Google Cloud Console.
-
-### Steps
-
-1.  **Clone the Repository**
-    ```bash
-    git clone [https://github.com/91Balvant/Bulk-Gmail-Sender-Excel-Draft-.git](https://github.com/91Balvant/Bulk-Gmail-Sender-Excel-Draft-.git)
-    cd Bulk-Gmail-Sender-Excel-Draft-
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Setup Google Credentials**
-    * Place your `credentials.json` file in the root directory of the project.
-    * *Note: On the first run, a browser window will open asking you to authorize the application.*
-
-4.  **Run the Application**
-    ```bash
-    python main.py
-    ```
-    *(Note: Replace `main.py` with the actual name of your entry script if different).*
+# 👋 Welcome to Mail Merge Pro!
+Send personalized bulk emails directly from your Gmail Drafts using Excel data.
 
 ---
 
-## 📖 Usage Guide
+# 🚀 Key Features
 
-1.  **Sign In:** Click the **Sign Out/In** button to authenticate with your Google Account.
-2.  **Load Data:** Click **Select Excel File** to choose your recipient list.
-3.  **Choose Draft:** The dropdown will populate with your Gmail Drafts. Select the draft you wish to send.
-4.  **Configure:** Check **Send Attachments** if required.
-5.  **Launch:** Click **Start New** to begin the mailing process.
-6.  **Monitor:** Watch the logs and progress bar. You can **Pause** or **Stop** the process at any time.
+### 🔐 Google OAuth 2.0 Login  
+Automatically authenticates your Google account — no manual token setup.
 
----
+### 📊 Excel Integration  
+Import `.xlsx` files with variables like **Name**, **Email**, **Company**, etc.
 
-## 📸 Screenshots
+### 📝 Gmail Draft Templates  
+Use Gmail Drafts as your email template with placeholders.
 
-| Login & Draft Selection | Sending Process |
-|:---:|:---:|
-| *(You can add more screenshots here)* | *(You can add more screenshots here)* |
+### 📎 Attachments  
+Send attachments automatically — or conditionally by Excel rules.
 
----
+### ▶️ Start / Stop / Resume  
+Safely manage long sending queues.
 
-## ⚠️ Important Notes
-
-* **Daily Limits:** Be aware of Gmail's daily sending limits (usually 500 emails/day for free accounts, 2000/day for Workspace).
-* **Draft ID:** The application automatically detects the unique Draft ID (e.g., `r-4320...`) as shown in the interface.
+### 📌 Real-Time Logs & Progress Bar  
+Get live status while emails are being sent.
 
 ---
 
-## 📜 License & Copyright
+# 📘 Complete User Guide
 
-**© 2025 Balvant Sharma. All Rights Reserved.**
+## 1️⃣ Excel File Setup
 
-This project is intended for personal or educational use. Please respect anti-spam laws and regulations when using bulk email tools.
+Your Excel file **must include**:
+
+| Column | Description |
+|--------|-------------|
+| **Email** | Required |
+| **Name**, **Company**, etc. | Optional placeholders |
+| **CC**, **BCC** | Optional (comma-separated) |
+| **Send Attachments** | Optional (Yes/No) |
+
+Example:
+
+| Email | Name | Company | CC | Send Attachments |
+|-------|------|---------|-----|------------------|
+| john@xyz.com | John | XYZ Ltd | mark@abc.com | Yes |
+| amy@abc.com | Amy | ABC Corp | | No |
 
 ---
 
-## 👨‍💻 Author
+## 2️⃣ Creating Gmail Draft Templates
 
-**Balvant Sharma**
-* [GitHub Profile](https://github.com/91Balvant)
+Create a Draft inside Gmail and use placeholders that match Excel headers:
+Hi {{Name}}, attached is the report for {{Company}}.
+
+✨ Subject line can also use placeholders:
+
+
+---
+
+## 3️⃣ Sending Process
+
+**Step 1:** Login with Google  
+**Step 2:** Select your Excel file  
+**Step 3:** Select your Gmail Draft  
+**Step 4:** Click **Start New** to begin sending  
+
+You can **Stop** anytime and **Resume** later.
+
+---
+
+## 4️⃣ Conditional Attachments
+
+To send attachments only for specific users:
+
+1. Uncheck **Send Attachments** in the app  
+2. Add a column in Excel → `Send Attachments`  
+3. Behavior:  
+   - **Yes** (or empty): Send attachments  
+   - **No**: Remove attachments for that user  
+
+Great for campaigns with different requirements.
+
+---
+
+# 🛠️ Setup Instructions
+
+## 1️⃣ Get `credentials.json`
+
+1. Open **Google Cloud Console**  
+2. Create a project  
+3. Enable **Gmail API**  
+4. Go to **Credentials → Create Credentials → OAuth Client ID**  
+5. Select **Desktop App**  
+6. Download JSON → rename to **credentials.json**
+
+---
+
+## 2️⃣ Install the Application
+
+```bash
+git clone https://github.com/91Balvant/Bulk-Gmail-Sender-Excel-Draft-.git
+cd Bulk-Gmail-Sender-Excel-Draft-
+pip install -r requirements.txt
